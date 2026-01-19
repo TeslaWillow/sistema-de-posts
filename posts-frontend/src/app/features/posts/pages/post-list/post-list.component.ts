@@ -31,10 +31,10 @@ export default class PostListComponent {
   });
 
   ngOnInit(): void {
-    this.loadPosts();
+    this._loadPosts();
   }
 
-  public loadPosts(): void {
+  private _loadPosts(): void {
     this.isLoading.set(true);
     this._postsService.getPosts().subscribe({
       next: (data) => {
@@ -44,4 +44,22 @@ export default class PostListComponent {
       error: () => this.isLoading.set(false)
     });
   }
+
+  public onDelete(id: string): void {
+    if (!confirm('¿Estás seguro de que deseas eliminar esta publicación?')) return;
+
+    this._postsService.deletePost(id).subscribe({
+      next: () => {
+        // Reactively update the local state to remove the deleted post
+        // Filter out the deleted post from the posts signal
+        this.posts.update((currentPosts) =>
+          currentPosts.filter(post => post._id !== id)
+        );
+      },
+      error: (err) => {
+        console.error('Error al eliminar:', err);
+      }
+    });
+  }
+
 }
