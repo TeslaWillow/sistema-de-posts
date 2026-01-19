@@ -5,11 +5,13 @@ import { Post } from '@features/posts/interfaces/posts.interface';
 import { PostsService } from '@features/posts/services/posts.service';
 import { RouterLink } from "@angular/router";
 import { UiSpinnerLoaderComponent } from '@shared/ui/ui-spinner-loader/ui-spinner-loader.component';
+import { RelativeDatePipe } from '@shared/pipes/relative-date.pipe';
+import { TruncatePipe } from '@shared/pipes/truncate.pipe';
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, UiSpinnerLoaderComponent],
+  imports: [CommonModule, FormsModule, RouterLink, UiSpinnerLoaderComponent, RelativeDatePipe, TruncatePipe],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })

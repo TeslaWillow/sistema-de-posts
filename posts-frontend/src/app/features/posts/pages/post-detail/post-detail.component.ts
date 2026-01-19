@@ -66,6 +66,11 @@ export default class PostDetailComponent {
     });
   }
 
+  public isInvalidField(field: string): boolean {
+    const control = this.commentForm.get(field);
+    return !!(control && control.invalid && (control.dirty || control.touched));
+  }
+
   public onCommentSubmit(): void {
     // Prevent multiple clicks
     if(this.isLoading()) return;
