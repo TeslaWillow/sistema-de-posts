@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { PostsService } from '@features/posts/services/posts.service';
 
 @Component({
@@ -15,12 +15,30 @@ export default class PostCreateComponent implements OnInit {
   private _fb = inject(FormBuilder);
   private _postService = inject(PostsService);
   private _router = inject(Router);
+  private _route = inject(ActivatedRoute);
 
   public postForm!: FormGroup;
   public isLoading = signal<boolean>(false);
+  // For editing
+  public isEditMode = signal(false);
+  public postId = signal<string | null>(null);
 
   ngOnInit(): void {
     this._createForm();
+    this._onEdit();
+  }
+
+  private _onEdit(): void {
+    const id = this._route.snapshot.paramMap.get('id');
+    if (!id) return;
+
+    this.isEditMode.set(true);
+      this.postId.set(id);
+
+    // Load existing post data
+    this._postService.getPostById(id).subscribe((post) => {
+        this.postForm.patchValue(post); // Fill form with existing data
+    });
   }
 
   private _createForm(): void {
@@ -46,15 +64,21 @@ export default class PostCreateComponent implements OnInit {
     }
 
     this.isLoading.set(true);
-    this._postService.createPost(this.postForm.value).subscribe({
+    const data = this.postForm.value;
+    const request = this.isEditMode()
+      ? this._postService.updatePost(this.postId()!, data)
+      : this._postService.createPost(data);
+
+    request.subscribe({
       next: () => {
-        // Redirect to list of posts after successful creation
         this.isLoading.set(false);
-        this._router.navigate(['/posts']);
+        // Redirect to list of posts after successful creation or update
+        this._router.navigate(['/posts'])
       },
-      error: () => {
+      error: (err) => {
         this.isLoading.set(false);
-      }
+        console.error(err);
+      },
     });
   }
 
