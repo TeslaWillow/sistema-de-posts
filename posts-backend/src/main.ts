@@ -9,6 +9,10 @@ async function bootstrap(): Promise<void> {
   // 1. Global exception filter
   app.useGlobalFilters(new AllExceptionsFilter());
 
+  app.enableCors({
+    origin: '*',
+  });
+
   // Global validation pipe
   app.useGlobalPipes(
     new ValidationPipe({
