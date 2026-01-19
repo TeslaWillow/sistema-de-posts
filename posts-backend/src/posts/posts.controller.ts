@@ -30,6 +30,13 @@ export class PostsController {
     return ApiResponse.success(post);
   }
 
+  // [POST] [/posts] - Create a new post
+  @Post()
+  async create(@Body() createPostDto: CreatePostDto) {
+    const post = await this._postsService.create(createPostDto);
+    return ApiResponse.success(post, 'Post creado exitosamente');
+  }
+
   @Post('bulk')
   async createBulk(@Body() createPostsDto: CreatePostDto[]) {
     const posts = await this._postsService.createBulk(createPostsDto);

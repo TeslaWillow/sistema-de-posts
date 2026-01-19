@@ -8,17 +8,22 @@ import { CreatePostDto } from './dto/create-post.dto';
 export class PostsService {
   constructor(@InjectModel(Post.name) private postModel: Model<Post>) {}
 
-  public async createBulk(posts: CreatePostDto[]) {
-    const result = await this.postModel.insertMany(posts);
-    return result;
-  }
-
   public async findAll() {
     return await this.postModel.find().exec();
   }
 
   public async findOne(id: string) {
     return await this.postModel.findById(id).exec();
+  }
+
+  public async create(post: CreatePostDto) {
+    const newPost = new this.postModel(post);
+    return await newPost.save();
+  }
+
+  public async createBulk(posts: CreatePostDto[]) {
+    const result = await this.postModel.insertMany(posts);
+    return result;
   }
 
   public async update(id: string, updatePostDto: CreatePostDto) {
