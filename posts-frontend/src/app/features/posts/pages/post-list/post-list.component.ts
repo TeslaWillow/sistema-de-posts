@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Post } from '@features/posts/interfaces/posts.interface';
 import { PostsService } from '@features/posts/services/posts.service';
 import { RouterLink } from "@angular/router";
+import { UiSpinnerLoaderComponent } from '@shared/ui/ui-spinner-loader/ui-spinner-loader.component';
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink, UiSpinnerLoaderComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })

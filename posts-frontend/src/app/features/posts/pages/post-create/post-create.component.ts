@@ -5,7 +5,7 @@ import { Router, RouterModule } from '@angular/router';
 import { PostsService } from '@features/posts/services/posts.service';
 
 @Component({
-  selector: 'post-create',
+  selector: 'post-create-page',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './post-create.component.html',

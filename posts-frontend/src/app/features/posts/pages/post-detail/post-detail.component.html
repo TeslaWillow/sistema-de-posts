@@ -1,0 +1,53 @@
+<div class="max-w-4xl mx-auto p-6">
+  @if (isLoading()) {
+    <div class="flex justify-center py-20">
+      <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
+    </div>
+  } @else if (post()) {
+    <article class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
+      <header class="mb-6">
+        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">
+          <a [routerLink]="['/posts']">&larr;</a>
+          {{ post()?.title }}
+        </h1>
+        <div class="text-gray-500 text-sm">
+          Por <span class="font-semibold text-blue-600">{{ post()?.author }}</span>
+          • {{ post()?.createdAt | date:'longDate' }}
+        </div>
+      </header>
+      <div class="prose prose-blue max-w-none text-gray-700 leading-relaxed">
+        {{ post()?.body }}
+      </div>
+    </article>
+
+    <section class="space-y-8">
+      <h3 class="text-2xl font-bold text-gray-800">Comentarios ({{ comments().length }})</h3>
+
+      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+        <h4 class="font-semibold mb-4 text-gray-700">Deja un comentario</h4>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+          <input formControlName="name" placeholder="Tu nombre" class="p-2 border rounded-md" />
+          <input formControlName="email" placeholder="Tu email" class="p-2 border rounded-md" />
+        </div>
+        <textarea formControlName="body" rows="3" placeholder="Escribe aquí tu comentario..." class="w-full p-2 border rounded-md mb-4"></textarea>
+        <button [disabled]="commentForm.invalid" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50">
+          Publicar Comentario
+        </button>
+      </form>
+
+      <div class="space-y-4">
+        @for (comment of comments(); track comment._id) {
+          <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+            <div class="flex justify-between items-center mb-2">
+              <span class="font-bold text-gray-800">{{ comment.name }}</span>
+              <span class="text-xs text-gray-400">{{ comment.createdAt | date:'short' }}</span>
+            </div>
+            <p class="text-gray-600 text-sm">{{ comment.body }}</p>
+          </div>
+        } @empty {
+          <p class="text-center text-gray-400 py-4">No hay comentarios todavía. ¡Sé el primero!</p>
+        }
+      </div>
+    </section>
+  }
+</div>

@@ -50,13 +50,14 @@ export class PostsService {
   }
 
   /**
-   * Create many posts at once
+   * Create a bulk of posts at once
    * @param posts Array of CreatePostDto
    * @returns Observable<Post[]>
    */
-  public createManyPosts(posts: CreatePostDto[]): Observable<Post[]> {
-    return this._http.post<ApiResponse<Post[]>>(`${this._apiUrl}/bulk`, { posts }).pipe(
-      map(res => res.data)
+  public createBulkPosts(posts: CreatePostDto[]): Observable<Post[]> {
+    return this._http.post<ApiResponse<Post[]>>(`${this._apiUrl}/bulk`, posts).pipe(
+      map((res) => res.data),
+      tap((posts) => console.log(`${posts.length} posts creados masivamente`))
     );
   }
 

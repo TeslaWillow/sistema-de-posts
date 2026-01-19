@@ -6,3 +6,10 @@ export interface Comment {
   body: string;
   createdAt: string;
 }
+
+export interface CreateCommentDto {
+  postId: string;
+  name: string;
+  email: string;
+  body: string;
+}
