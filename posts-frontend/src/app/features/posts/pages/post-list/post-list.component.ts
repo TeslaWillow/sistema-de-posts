@@ -3,11 +3,12 @@ import { Component, computed, inject, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Post } from '@features/posts/interfaces/posts.interface';
 import { PostsService } from '@features/posts/services/posts.service';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })

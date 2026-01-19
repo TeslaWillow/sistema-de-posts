@@ -6,6 +6,10 @@ export const routes: Routes = [
     loadComponent: () => import('./features/posts/pages/post-list/post-list.component'),
   },
   {
+    path: 'posts/create',
+    loadComponent: () => import('./features/posts/pages/post-create/post-create.component'),
+  },
+  {
     path: '**',
     redirectTo: 'posts'
   }
