@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Arquitectura de NestJS",
+    "body": "NestJS utiliza decoradores e inyección de dependencias para crear módulos...",
+    "author": "DevMaster"
+  },
+  {
+    "title": "Angular 18 y Signals",
+    "body": "Los Signals revolucionaron la detección de cambios eliminando la dependencia excesiva de Zone.js...",
+    "author": "FrontEnd_Specialist"
+  }
+]
