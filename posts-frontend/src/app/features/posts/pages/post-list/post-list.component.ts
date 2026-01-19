@@ -4,14 +4,15 @@ import { FormsModule } from '@angular/forms';
 import { Post } from '@features/posts/interfaces/posts.interface';
 import { PostsService } from '@features/posts/services/posts.service';
 import { RouterLink } from "@angular/router";
-import { UiSpinnerLoaderComponent } from '@shared/ui/ui-spinner-loader/ui-spinner-loader.component';
 import { RelativeDatePipe } from '@shared/pipes/relative-date.pipe';
 import { TruncatePipe } from '@shared/pipes/truncate.pipe';
+import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
+import { ToggleThemeButtonComponent } from '@shared/components/atoms/toggle-theme-button/toggle-theme-button.component';
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, UiSpinnerLoaderComponent, RelativeDatePipe, TruncatePipe],
+  imports: [CommonModule, FormsModule, RouterLink, RelativeDatePipe, TruncatePipe, LoaderSpinnerComponent, ToggleThemeButtonComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })

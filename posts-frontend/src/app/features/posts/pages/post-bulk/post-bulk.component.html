@@ -1,6 +1,6 @@
 <div class="max-w-4xl mx-auto p-6">
   <div class="mb-6 flex justify-between items-center">
-    <h2 class="text-2xl font-bold text-gray-800">Carga Masiva de Publicaciones</h2>
+    <h2 class="text-2xl font-bold text-primary">Carga Masiva de Publicaciones</h2>
     <a [routerLink]="['/posts']" class="text-blue-600 hover:underline">Volver al listado</a>
   </div>
 
@@ -12,7 +12,7 @@
     </p>
   </div>
 
-  <div class="bg-white shadow-md rounded-lg p-6">
+  <div class="bg-bg-card shadow-md rounded-lg p-6">
     <textarea
       [formControl]="jsonControl"
       rows="12"
@@ -39,7 +39,7 @@
     </div>
 
     @if(isLoading()) {
-     <ui-spinner-loader/>
+     <loader-spinner/>
     }
 
   </div>

@@ -3,12 +3,12 @@ import { Component, inject, Signal, signal } from '@angular/core';
 import { FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
 import { PostsService } from '@features/posts/services/posts.service';
-import { UiSpinnerLoaderComponent } from '@shared/ui/ui-spinner-loader/ui-spinner-loader.component';
+import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
 
 @Component({
   selector: 'post-bulk-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, UiSpinnerLoaderComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, LoaderSpinnerComponent],
   templateUrl: './post-bulk.component.html',
   styleUrl: './post-bulk.component.scss'
 })

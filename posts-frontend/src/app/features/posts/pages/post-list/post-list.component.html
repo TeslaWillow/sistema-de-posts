@@ -1,6 +1,6 @@
 <div class="p-6 max-w-7xl mx-auto">
   <div class="flex justify-between items-center mb-6">
-    <h1 class="text-3xl font-bold text-gray-800">Publicaciones</h1>
+    <h1 class="text-3xl font-bold text-primary">Publicaciones</h1>
     <div>
       <button
         class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition"
@@ -8,12 +8,13 @@
       >
         + Nuevo Post
       </button>
-        <button
-          class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition"
-          [routerLink]="['bulk']"
-        >
-          + Cargar JSON
-        </button>
+      <button
+        class="bg-blue-400 text-white px-4 py-2 rounded-lg hover:bg-blue-500 transition"
+        [routerLink]="['bulk']"
+      >
+        + Cargar JSON
+      </button>
+      <toggle-theme-button />
     </div>
   </div>
 
@@ -28,11 +29,11 @@
   </div>
 
   @if (isLoading()) {
-    <ui-spinner-loader/>
+    <loader-spinner/>
   } @else {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (post of filteredPosts(); track post._id) {
-        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition">
+        <div class="bg-bg-card p-6 rounded-xl shadow-sm border border-border-main hover:shadow-md transition">
           <h2 class="text-xl font-semibold mb-2 text-gray-900">{{ post.title | truncate:50 }}</h2>
           <p class="text-gray-500 text-sm mb-4">Por: <span class="font-medium">{{ post.author | truncate:25 }}</span></p>
           <p class="text-gray-400 text-xs mb-4">Creado: {{ post.createdAt | relativeDate }}</p>

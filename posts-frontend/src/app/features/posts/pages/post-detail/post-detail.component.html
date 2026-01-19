@@ -4,7 +4,7 @@
       <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
     </div>
   } @else if (post()) {
-    <article class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 mb-8">
+    <article class="bg-bg-card p-8 rounded-2xl shadow-sm border border-border-main mb-8">
       <header class="mb-6">
         <h1 class="text-4xl font-extrabold text-gray-900 mb-2">
           <a [routerLink]="['/posts']">&larr;</a>
@@ -22,7 +22,7 @@
 
     <section class="space-y-8">
       <div class="mb-3">
-        <h3 class="text-2xl font-bold text-gray-800">Comentarios ({{ comments().length }})</h3>
+        <h3 class="text-2xl font-bold text-primary">Comentarios ({{ comments().length }})</h3>
       </div>
 
       <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="bg-gray-50 p-6 rounded-xl border border-gray-200">
@@ -50,9 +50,9 @@
 
       <div class="space-y-4">
         @for (comment of comments(); track comment._id) {
-          <div class="bg-white p-4 rounded-lg border border-gray-100 shadow-sm">
+          <div class="bg-bg-card p-4 rounded-lg border border-border-main shadow-sm">
             <div class="flex justify-between items-center mb-2">
-              <span class="font-bold text-gray-800">{{ comment.name }}</span>
+              <span class="font-bold text-primary">{{ comment.name }}</span>
               <span class="text-xs text-gray-400">{{ comment.createdAt | date:'short' }}</span>
             </div>
             <p class="text-gray-600 text-sm">{{ comment.body }}</p>
