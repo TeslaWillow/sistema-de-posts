@@ -1,0 +1,285 @@
+{
+  "info": {
+    "_postman_id": "325189a5-f5fb-46c4-92b3-65b83e78a509",
+    "name": "albatros_posts",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4441605"
+  },
+  "item": [
+    {
+      "name": "Find All Posts",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find All Post By Id",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/posts/696c39c60b3d7145294ae3e0",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "posts",
+            "696c39c60b3d7145294ae3e0"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create a Posts",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Tercer Post Técnico\",\r\n    \"body\": \"Este es el contenido del tercer post para la prueba técnica.\",\r\n    \"author\": \"Candidato FullStack\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/posts",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "posts"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Many Posts",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "[\r\n  {\r\n    \"title\": \"Primer Post Técnico\",\r\n    \"body\": \"Este es el contenido del primer post para la prueba técnica.\",\r\n    \"author\": \"Candidato FullStack\"\r\n  },\r\n  {\r\n    \"title\": \"Aprendiendo NestJS\",\r\n    \"body\": \"NestJS es un framework increíble para construir aplicaciones escalables.\",\r\n    \"author\": \"Guía Tech\"\r\n  }\r\n]",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/posts/bulk",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "posts",
+            "bulk"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update Post By Id",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Cuarto Post Técnico\",\r\n    \"body\": \"Este es el contenido del Cuarto post para la prueba técnica.\",\r\n    \"author\": \"Candidato FullStack\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/posts/696c45da360f4cd4e7d755f9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "posts",
+            "696c45da360f4cd4e7d755f9"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Post By Id",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n    \"title\": \"Segundo Post Técnico\",\r\n    \"body\": \"Este es el contenido del segundo post para la prueba técnica.\",\r\n    \"author\": \"Candidato FullStack\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/posts/696c45da360f4cd4e7d755f9",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "posts",
+            "696c45da360f4cd4e7d755f9"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Find Comment By PostId",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"postId\": \"696c39c60b3d7145294ae3e0\",\r\n  \"name\": \"Usuario Comentador\",\r\n  \"email\": \"test@ejemplo.com\",\r\n  \"body\": \"¡Excelente artículo, muy útil!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/comments?postId=696c39c60b3d7145294ae3e1",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "comments"
+          ],
+          "query": [
+            {
+              "key": "postId",
+              "value": "696c39c60b3d7145294ae3e1"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Create Comment",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"postId\": \"696c39c60b3d7145294ae3e0\",\r\n  \"name\": \"Usuario Comentador\",\r\n  \"email\": \"test@ejemplo.com\",\r\n  \"body\": \"¡Excelente artículo, muy útil!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/comments",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "comments"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete Comment By Id",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "DELETE",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\r\n  \"postId\": \"696c39c60b3d7145294ae3e0\",\r\n  \"name\": \"Usuario Comentador\",\r\n  \"email\": \"test@ejemplo.com\",\r\n  \"body\": \"¡Excelente artículo, muy útil!\"\r\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:3000/comments/696c3abc0b3d7145294ae3e4",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "3000",
+          "path": [
+            "comments",
+            "696c3abc0b3d7145294ae3e4"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

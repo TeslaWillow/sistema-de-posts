@@ -69,8 +69,14 @@ Inicia el servidor:
     npm start
 ```
 
+## Endpoints Principales (API) 📋
+En la carpeta /docs se encuentra el .json para ser cargado a postman para hacer pruebas directamente en el backend.
+
+
 ## Archivo JSON para Carga Masiva (Ejemplo) 📄
-Para probar la funcionalidad de Carga Masiva, puedes usar este formato:
+En la carpeta /docs se encuentra el .json (con muchos mas datos) para ser cargado en el frontend o copiarlo directamente en el backend.
+
+Para probar la funcionalidad de Carga Masiva, puedes usar este formato (con pocos datos):
 ```
 [
   {
