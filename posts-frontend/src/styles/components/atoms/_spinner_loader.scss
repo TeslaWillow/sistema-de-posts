@@ -1,3 +1,10 @@
 .spinner-loader {
-  @apply animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600;
+  // 1. size and shape
+  @apply h-12 w-12 rounded-full animate-spin;
+  // 2. Ring base
+  @apply border-4 border-solid border-border-main;
+  // 3. Colored top border
+  @apply border-t-primary;
+  // 4. Make background transparent to avoid unwanted bg color
+  background-color: transparent !important;
 }
