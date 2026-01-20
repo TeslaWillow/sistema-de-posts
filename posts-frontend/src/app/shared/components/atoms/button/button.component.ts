@@ -25,7 +25,7 @@ export class ButtonComponent {
     const variants = {
       primary: 'bg-primary text-white hover:opacity-90',
       danger:  'bg-danger text-white hover:opacity-90',
-      outline: 'border border-border-main text-text-base hover:bg-border-main'
+      outline: 'border border-border-main text-text-base hover:bg-border-main/50 hover:border-primary/50 transition-all duration-200',
     };
     return variants[this.variant()];
   });

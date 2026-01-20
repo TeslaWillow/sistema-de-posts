@@ -1,7 +1,8 @@
 <div class="max-w-4xl mx-auto p-6">
   <div class="mb-6 flex justify-between items-center">
-    <h2 class="text-2xl font-bold text-primary">Carga Masiva de Publicaciones</h2>
-    <a [routerLink]="['/posts']" class="text-primary hover:underline">Volver al listado</a>
+    <h2 class="text-2xl font-bold text-primary">
+      <a [routerLink]="['/posts']">&larr;</a> Carga Masiva de Publicaciones
+    </h2>
   </div>
 
   <div class="bg-blue-50 border-l-4 border-blue-400 p-4 mb-6">
@@ -12,7 +13,7 @@
     </p>
   </div>
 
-  <div class="bg-bg-card shadow-md rounded-lg p-6">
+  <div class="bg-bg-surface border border-border-main rounded-2xl p-6 shadow-sm p-6">
     <textarea
       [formControl]="jsonControl"
       rows="12"
@@ -24,18 +25,24 @@
       <p class="text-red-500 text-sm mt-2">{{ errorMessage() }}</p>
     }
 
-    <div class="mt-6 flex justify-end">
-      <button
-        (click)="processBulk()"
+    <div class="flex justify-end space-x-3 mt-3">
+      <app-button
+        [routerLink]="['/posts']"
+        variant="outline"
+      >
+        Cancelar
+      </app-button>
+      <app-button
+        (clicked)="processBulk()"
+        variant="primary"
         [disabled]="jsonControl.invalid || isLoading()"
-        class="bg-green-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-green-700 disabled:opacity-50 flex items-center"
       >
         @if (isLoading()) {
           Procesando...
         } @else {
           Importar Datos
         }
-      </button>
+      </app-button>
     </div>
 
     @if(isLoading()) {

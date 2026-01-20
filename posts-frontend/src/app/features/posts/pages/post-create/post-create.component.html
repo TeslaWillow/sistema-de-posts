@@ -1,11 +1,13 @@
 <div class="max-w-2xl mx-auto p-6 bg-bg-card shadow-lg rounded-xl mt-10">
   <div class="mb-5">
-    <h2 class="text-2xl font-bold text-primary">Crear Nueva Publicación</h2>
+    <h2 class="text-2xl font-bold text-primary">
+      <a [routerLink]="['/posts']">&larr;</a> Crear Nueva Publicación
+    </h2>
   </div>
 
-  <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="space-y-5">
+  <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="card space-y-5">
     <div>
-      <label class="block text-sm font-medium text-gray-700">Título</label>
+      <label class="form-label mb-1">Título</label>
       <input
         type="text"
         formControlName="title"
@@ -18,7 +20,7 @@
     </div>
 
     <div>
-      <label class="block text-sm font-medium text-gray-700">Autor</label>
+      <label class="form-label mb-1">Autor</label>
       <input
         type="text"
         formControlName="author"
@@ -30,7 +32,7 @@
     </div>
 
     <div>
-      <label class="block text-sm font-medium text-gray-700">Contenido</label>
+      <label class="form-label mb-1">Contenido</label>
       <textarea
         formControlName="body"
         rows="4"
