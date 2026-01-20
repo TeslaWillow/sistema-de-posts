@@ -1,0 +1,7 @@
+<div class="card">
+  <div class="flex justify-between items-center mb-2">
+    <span class="font-bold text-primary">{{ comment().name }}</span>
+    <span class="text-xs text-text-muted">{{ comment().createdAt | date:'short' }}</span>
+  </div>
+  <p class="text-text-base text-sm">{{ comment().body }}</p>
+</div>

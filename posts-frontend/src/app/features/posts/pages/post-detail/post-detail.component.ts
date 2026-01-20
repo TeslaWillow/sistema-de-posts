@@ -11,11 +11,12 @@ import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { tap } from 'rxjs/internal/operators/tap';
 import { FormFieldComponent } from "@shared/components/atoms/form-field/form-field.component";
 import { ButtonComponent } from "@shared/components/atoms/button/button.component";
+import { SingleCommentComponent } from "@features/comments/components/single-comment/single-comment.component";
 
 @Component({
   selector: 'post-detail-page',
   standalone: true,
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, LoaderSpinnerComponent, FormFieldComponent, ButtonComponent],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, LoaderSpinnerComponent, FormFieldComponent, ButtonComponent, SingleCommentComponent],
   templateUrl: './post-detail.component.html',
   styleUrl: './post-detail.component.scss'
 })
