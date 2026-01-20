@@ -1,12 +1,52 @@
 [
   {
     "title": "Arquitectura de NestJS",
-    "body": "NestJS utiliza decoradores e inyección de dependencias para crear módulos...",
+    "body": "NestJS utiliza decoradores e inyección de dependencias para crear módulos altamente escalables y mantenibles. Su arquitectura inspirada en Angular facilita la transición para desarrolladores Frontend.",
     "author": "DevMaster"
   },
   {
     "title": "Angular 18 y Signals",
-    "body": "Los Signals revolucionaron la detección de cambios eliminando la dependencia excesiva de Zone.js...",
+    "body": "Los Signals revolucionaron la detección de cambios eliminando la dependencia excesiva de Zone.js. Esto permite un rendimiento mucho más fino y una reactividad más predecible en aplicaciones complejas.",
     "author": "FrontEnd_Specialist"
+  },
+  {
+    "title": "Patrones de Diseño en TypeScript",
+    "body": "El uso de interfaces y tipos avanzados en TypeScript permite implementar patrones como Singleton, Factory y Observer con una seguridad de tipo que el JavaScript puro no puede ofrecer.",
+    "author": "TypeScriptNinja"
+  },
+  {
+    "title": "Dockerización de Microservicios",
+    "body": "Contenerizar una aplicación de NestJS permite que el entorno de desarrollo sea idéntico al de producción. Es vital optimizar las imágenes usando multi-stage builds para reducir el peso final.",
+    "author": "Ops_Guru"
+  },
+  {
+    "title": "Pruebas Unitarias con Jest",
+    "body": "No basta con escribir código; hay que asegurar que funcione. Jest en el ecosistema NestJS permite realizar mocks de servicios de forma sencilla para probar la lógica de negocio aislada.",
+    "author": "QA_Expert"
+  },
+  {
+    "title": "Tailwind CSS v4: El Futuro",
+    "body": "La nueva versión de Tailwind simplifica la configuración moviendo casi todo al motor CSS. El uso de @theme redefine cómo manejamos variables de entorno visual sin archivos JS pesados.",
+    "author": "StyleWizard"
+  },
+  {
+    "title": "MongoDB y Agregaciones",
+    "body": "A veces el CRUD no es suficiente. El pipeline de agregación de MongoDB permite transformar datos de forma potente directamente en la base de datos antes de enviarlos a la API.",
+    "author": "DataArchitect"
+  },
+  {
+    "title": "Seguridad con JWT",
+    "body": "Implementar Guards en NestJS para proteger rutas con JSON Web Tokens es el estándar para APIs modernas. Siempre recuerda usar secretos fuertes en tus variables de entorno (.env).",
+    "author": "SecurityFocus"
+  },
+  {
+    "title": "UX en Formularios Complejos",
+    "body": "Validar en tiempo real y usar componentes atómicos para los errores mejora la tasa de conversión. Un formulario que respira y guía al usuario es clave en cualquier dashboard.",
+    "author": "UX_Designer"
+  },
+  {
+    "title": "Estrategias de Deploy",
+    "body": "Desde Vercel hasta AWS EC2, la estrategia de despliegue debe considerar el escalado automático y la persistencia de datos. El uso de pipelines de CI/CD es innegociable en 2026.",
+    "author": "FullStack_Candidato"
   }
 ]
