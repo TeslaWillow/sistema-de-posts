@@ -8,42 +8,41 @@
   <form [formGroup]="postForm" (ngSubmit)="onSubmit()" class="card space-y-5">
     <div>
       <label class="form-label mb-1">Título</label>
-      <input
-        type="text"
-        formControlName="title"
-        placeholder="Una gran aventura"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 border p-2"
-        [class.border-red-500]="isControlInvalid('title')"
-      />
-      @if (isControlInvalid('title')) {
-        <span class="text-red-500 text-xs">El título es requerido (mínimo 3 caracteres).</span>
-      }
+      <app-form-field [errorMessage]="isControlInvalid('title') ? 'El título es requerido (mínimo 3 caracteres).' : null">
+        <input
+          type="text"
+          formControlName="title"
+          placeholder="Una gran aventura"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 border p-2"
+          [class.border-red-500]="isControlInvalid('title')"
+        />
+      </app-form-field>
     </div>
 
     <div>
       <label class="form-label mb-1">Autor</label>
-      <input
-        type="text"
-        formControlName="author"
-        placeholder="Juan Pérez"
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 border p-2"
-      />
-      @if (isControlInvalid('author')) {
-        <span class="text-red-500 text-xs">El autor es requerido.</span>
-      }
+      <app-form-field [errorMessage]="isControlInvalid('author') ? 'El autor es requerido.' : null">
+        <input
+          type="text"
+          formControlName="author"
+          placeholder="Juan Pérez"
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 border p-2"
+          [class.border-red-500]="isControlInvalid('author')"
+        />
+      </app-form-field>
     </div>
 
     <div>
       <label class="form-label mb-1">Contenido</label>
-      <textarea
-        formControlName="body"
-        rows="4"
-        placeholder="Escribe el contenido de la publicación aquí..."
-        class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 border p-2"
-      ></textarea>
-      @if (isControlInvalid('body')) {
-        <span class="text-red-500 text-xs">El contenido debe tener al menos 10 caracteres.</span>
-      }
+      <app-form-field [errorMessage]="isControlInvalid('body') ? 'El contenido debe tener al menos 10 caracteres.' : null">
+        <textarea
+          formControlName="body"
+          rows="4"
+          placeholder="Escribe el contenido de la publicación aquí..."
+          class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 border p-2"
+          [class.border-red-500]="isControlInvalid('body')"
+        ></textarea>
+      </app-form-field>
     </div>
 
     <div class="flex justify-end space-x-3 pt-4">

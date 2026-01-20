@@ -5,11 +5,12 @@ import { Router, RouterModule } from '@angular/router';
 import { PostsService } from '@features/posts/services/posts.service';
 import { ButtonComponent } from '@shared/components/atoms/button/button.component';
 import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
+import { FormFieldComponent } from "@shared/components/atoms/form-field/form-field.component";
 
 @Component({
   selector: 'post-bulk-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, LoaderSpinnerComponent, ButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, LoaderSpinnerComponent, ButtonComponent, FormFieldComponent],
   templateUrl: './post-bulk.component.html',
   styleUrl: './post-bulk.component.scss'
 })

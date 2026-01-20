@@ -4,11 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { PostsService } from '@features/posts/services/posts.service';
 import { ButtonComponent } from "@shared/components/atoms/button/button.component";
+import { FormFieldComponent } from "@shared/components/atoms/form-field/form-field.component";
 
 @Component({
   selector: 'post-create-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule, ButtonComponent],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, ButtonComponent, FormFieldComponent],
   templateUrl: './post-create.component.html',
   styleUrl: './post-create.component.scss'
 })

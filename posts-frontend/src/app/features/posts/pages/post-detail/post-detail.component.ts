@@ -9,11 +9,13 @@ import { PostsService } from '@features/posts/services/posts.service';
 import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
 import { switchMap } from 'rxjs/internal/operators/switchMap';
 import { tap } from 'rxjs/internal/operators/tap';
+import { FormFieldComponent } from "@shared/components/atoms/form-field/form-field.component";
+import { ButtonComponent } from "@shared/components/atoms/button/button.component";
 
 @Component({
   selector: 'post-detail-page',
   standalone: true,
-  imports: [CommonModule, RouterModule, ReactiveFormsModule, LoaderSpinnerComponent],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, LoaderSpinnerComponent, FormFieldComponent, ButtonComponent],
   templateUrl: './post-detail.component.html',
   styleUrl: './post-detail.component.scss'
 })

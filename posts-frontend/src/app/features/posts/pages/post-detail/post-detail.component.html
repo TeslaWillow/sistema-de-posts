@@ -1,69 +1,70 @@
 <div class="max-w-4xl mx-auto p-6">
   @if (isLoading()) {
-    <loader-spinner />
+  <loader-spinner />
   } @else if (post()) {
-    <article class="card mb-8">
-      <header class="mb-6">
-        <h1 class="text-4xl font-extrabold text-text-base mb-2">
-          <a [routerLink]="['/posts']">&larr;</a>
-          {{ post()?.title }}
-        </h1>
-        <div class="text-text-muted text-sm">
-          Por <span class="font-semibold text-primary">{{ post()?.author }}</span>
-          • {{ post()?.createdAt | date:'longDate' }}
-        </div>
-      </header>
-      <div class="prose prose-blue max-w-none text-text-base leading-relaxed">
-        {{ post()?.body }}
+  <article class="card mb-8">
+    <header class="mb-6">
+      <h1 class="text-4xl font-extrabold text-text-base mb-2">
+        <a [routerLink]="['/posts']">&larr;</a>
+        {{ post()?.title }}
+      </h1>
+      <div class="text-text-muted text-sm">
+        Por <span class="font-semibold text-primary">{{ post()?.author }}</span>
+        • {{ post()?.createdAt | date:'longDate' }}
       </div>
-    </article>
+    </header>
+    <div class="prose prose-blue max-w-none text-text-base leading-relaxed">
+      {{ post()?.body }}
+    </div>
+  </article>
 
-    <section class="space-y-8">
-      <div class="mb-3">
-        <h3 class="text-2xl font-bold text-primary">Comentarios ({{ comments().length }})</h3>
+  <section class="space-y-8">
+    <div class="mb-3">
+      <h3 class="text-2xl font-bold text-primary">Comentarios ({{ comments().length }})</h3>
+    </div>
+
+    <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()"
+      class="bg-bg-surface border border-border-main p-6 rounded-2xl shadow-sm">
+
+      <h4 class="text-lg font-bold mb-6 text-text-base">Deja un comentario</h4>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
+        <app-form-field [errorMessage]="isInvalidField('name') ? 'El nombre es obligatorio' : null">
+          <input formControlName="name" placeholder="Tu nombre" class="form-input"
+            [class.form-input-error]="isInvalidField('name')" />
+        </app-form-field>
+
+        <app-form-field [errorMessage]="isInvalidField('email') ? 'Email inválido o vacío' : null">
+          <input formControlName="email" placeholder="tu@email.com" class="form-input"
+            [class.form-input-error]="isInvalidField('email')" />
+        </app-form-field>
       </div>
 
-      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="card">
-        <div class="mb-2">
-          <h4 class="font-semibold mb-4 text-text-base">Deja un comentario</h4>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
-          <input formControlName="name" placeholder="Tu nombre" class="p-2 border rounded-md" />
-          @if (isInvalidField('name')) {
-            <small class="text-red-500 text-sm mt-1">El nombre es obligatorio.</small>
-          }
-          <input formControlName="email" placeholder="Tu email: ejemplo@gmail.com" class="p-2 border rounded-md" />
-          @if (isInvalidField('email')) {
-            <small class="text-red-500 text-sm mt-1">El email es obligatorio y debe ser válido.</small>
-          }
-        </div>
-        <textarea
-          formControlName="body"
-          rows="3"
-          placeholder="Escribe aquí tu comentario..."
-          class="w-full p-2 border rounded-md mb-4"
-        ></textarea>
-        @if (isInvalidField('body')) {
-          <small class="text-red-500 text-sm mt-1">El comentario no puede estar vacío.</small>
-        }
-        <button [disabled]="commentForm.invalid" class="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 disabled:opacity-50">
-          Publicar Comentario
-        </button>
-      </form>
-
-      <div class="space-y-4">
-        @for (comment of comments(); track comment._id) {
-          <div class="card">
-            <div class="flex justify-between items-center mb-2">
-              <span class="font-bold text-primary">{{ comment.name }}</span>
-              <span class="text-xs text-text-muted">{{ comment.createdAt | date:'short' }}</span>
-            </div>
-            <p class="text-text-base text-sm">{{ comment.body }}</p>
-          </div>
-        } @empty {
-          <p class="text-center text-text-muted py-4">No hay comentarios todavía. ¡Sé el primero!</p>
-        }
+      <div class="mb-6">
+        <app-form-field [errorMessage]="isInvalidField('body') ? 'El comentario no puede estar vacío' : null">
+          <textarea formControlName="body" rows="4" placeholder="Escribe aquí tu comentario..."
+            class="form-input resize-none" [class.form-input-error]="isInvalidField('body')"></textarea>
+        </app-form-field>
       </div>
-    </section>
+
+      <app-button type="submit" [disabled]="commentForm.invalid" [isLoading]="isLoading()" class="w-full md:w-auto">
+        Publicar Comentario
+      </app-button>
+    </form>
+
+    <div class="space-y-4">
+      @for (comment of comments(); track comment._id) {
+      <div class="card">
+        <div class="flex justify-between items-center mb-2">
+          <span class="font-bold text-primary">{{ comment.name }}</span>
+          <span class="text-xs text-text-muted">{{ comment.createdAt | date:'short' }}</span>
+        </div>
+        <p class="text-text-base text-sm">{{ comment.body }}</p>
+      </div>
+      } @empty {
+      <p class="text-center text-text-muted py-4">No hay comentarios todavía. ¡Sé el primero!</p>
+      }
+    </div>
+  </section>
   }
 </div>

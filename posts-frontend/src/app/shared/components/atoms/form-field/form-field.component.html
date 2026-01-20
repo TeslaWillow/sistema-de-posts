@@ -1,0 +1,9 @@
+<div class="flex flex-col w-full">
+  <ng-content></ng-content>
+
+  @if (errorMessage()) {
+    <span class="text-danger text-xs mt-1 animate-fade-in font-medium">
+      {{ errorMessage() }}
+    </span>
+  }
+</div>

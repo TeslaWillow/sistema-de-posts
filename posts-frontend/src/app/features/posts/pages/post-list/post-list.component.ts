@@ -7,11 +7,12 @@ import { Router, RouterLink } from "@angular/router";
 import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
 import { ButtonComponent } from "@shared/components/atoms/button/button.component";
 import { PostCardComponent } from '@features/posts/components/post-card/post-card.component';
+import { FormFieldComponent } from "@shared/components/atoms/form-field/form-field.component";
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, LoaderSpinnerComponent, ButtonComponent, PostCardComponent],
+  imports: [CommonModule, FormsModule, RouterLink, LoaderSpinnerComponent, ButtonComponent, PostCardComponent, FormFieldComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })
