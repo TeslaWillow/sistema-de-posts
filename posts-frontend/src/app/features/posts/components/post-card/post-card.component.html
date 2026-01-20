@@ -16,23 +16,24 @@
     {{ post().body | truncate:100 }}
   </p>
 
-  <div class="flex justify-center gap-3 mt-6">
+  <div class="flex justify-start gap-3 mt-6">
     <app-button
       variant="primary"
-      class="flex-1"
+      class="flex items-center"
       [routerLink]="['/posts', post()._id]">
       Ver
     </app-button>
 
     <app-button
       variant="outline"
-      class="flex-1"
+      class="flex items-center"
       (clicked)="onEdit();">
       Editar
     </app-button>
 
     <app-button
       variant="danger"
+      class="flex items-center"
       (clicked)="onDelete();">
       <span class="sr-only">Eliminar</span>
       Eliminar 🗑️

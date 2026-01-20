@@ -5,14 +5,13 @@ import { Post } from '@features/posts/interfaces/posts.interface';
 import { PostsService } from '@features/posts/services/posts.service';
 import { Router, RouterLink } from "@angular/router";
 import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
-import { ToggleThemeButtonComponent } from '@shared/components/atoms/toggle-theme-button/toggle-theme-button.component';
 import { ButtonComponent } from "@shared/components/atoms/button/button.component";
 import { PostCardComponent } from '@features/posts/components/post-card/post-card.component';
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, LoaderSpinnerComponent, ToggleThemeButtonComponent, ButtonComponent, PostCardComponent],
+  imports: [CommonModule, FormsModule, RouterLink, LoaderSpinnerComponent, ButtonComponent, PostCardComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })
