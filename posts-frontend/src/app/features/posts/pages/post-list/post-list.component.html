@@ -33,26 +33,10 @@
   } @else {
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       @for (post of filteredPosts(); track post._id) {
-        <div class="bg-bg-card p-6 rounded-xl shadow-sm border border-border-main hover:shadow-md transition">
-          <h2 class="text-xl font-semibold mb-2 text-text-base">{{ post.title | truncate:50 }}</h2>
-          <p class="text-text-muted text-sm mb-4">Por: <span class="font-medium">{{ post.author | truncate:25 }}</span></p>
-          <p class="text-text-muted text-xs mb-4">Creado: {{ post.createdAt | relativeDate }}</p>
-
-          <div class="flex space-x-2 border-t pt-4">
-            <app-button
-              variant="primary"
-              [routerLink]="['/posts', post._id]"
-            >Ver</app-button>
-            <app-button
-              variant="outline"
-              [routerLink]="['/posts/edit', post._id]"
-            >Editar</app-button>
-            <app-button
-              variant="danger"
-              (click)="onDelete(post._id)"
-            >Eliminar</app-button>
-          </div>
-        </div>
+        <posts-post-card
+          [post]="post"
+          (edit)="onEdit($event)"
+          (delete)="onDelete($event)"/>
       } @empty {
         <div class="col-span-full text-center py-20 text-text-muted">
           No se encontraron publicaciones.

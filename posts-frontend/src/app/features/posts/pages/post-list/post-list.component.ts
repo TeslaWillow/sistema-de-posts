@@ -3,22 +3,22 @@ import { Component, computed, inject, Signal, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { Post } from '@features/posts/interfaces/posts.interface';
 import { PostsService } from '@features/posts/services/posts.service';
-import { RouterLink } from "@angular/router";
-import { RelativeDatePipe } from '@shared/pipes/relative-date.pipe';
-import { TruncatePipe } from '@shared/pipes/truncate.pipe';
+import { Router, RouterLink } from "@angular/router";
 import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
 import { ToggleThemeButtonComponent } from '@shared/components/atoms/toggle-theme-button/toggle-theme-button.component';
 import { ButtonComponent } from "@shared/components/atoms/button/button.component";
+import { PostCardComponent } from '@features/posts/components/post-card/post-card.component';
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RelativeDatePipe, TruncatePipe, LoaderSpinnerComponent, ToggleThemeButtonComponent, ButtonComponent],
+  imports: [CommonModule, FormsModule, RouterLink, LoaderSpinnerComponent, ToggleThemeButtonComponent, ButtonComponent, PostCardComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })
 export default class PostListComponent {
   private _postsService = inject(PostsService);
+  private _router = inject(Router);
 
   // required signals
   public posts = signal<Post[]>([]);
@@ -47,6 +47,10 @@ export default class PostListComponent {
       },
       error: () => this.isLoading.set(false)
     });
+  }
+
+  public onEdit(id: string): void {
+    this._router.navigate([`/posts/edit/${id}`]);
   }
 
   public onDelete(id: string): void {
