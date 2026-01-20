@@ -8,11 +8,12 @@ import { RelativeDatePipe } from '@shared/pipes/relative-date.pipe';
 import { TruncatePipe } from '@shared/pipes/truncate.pipe';
 import { LoaderSpinnerComponent } from '@shared/components/atoms/loader-spinner/loader-spinner.component';
 import { ToggleThemeButtonComponent } from '@shared/components/atoms/toggle-theme-button/toggle-theme-button.component';
+import { ButtonComponent } from "@shared/components/atoms/button/button.component";
 
 @Component({
   selector: 'post-list',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterLink, RelativeDatePipe, TruncatePipe, LoaderSpinnerComponent, ToggleThemeButtonComponent],
+  imports: [CommonModule, FormsModule, RouterLink, RelativeDatePipe, TruncatePipe, LoaderSpinnerComponent, ToggleThemeButtonComponent, ButtonComponent],
   templateUrl: './post-list.component.html',
   styleUrl: './post-list.component.scss'
 })

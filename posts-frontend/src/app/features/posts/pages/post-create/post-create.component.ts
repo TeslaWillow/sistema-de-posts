@@ -3,11 +3,12 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { PostsService } from '@features/posts/services/posts.service';
+import { ButtonComponent } from "@shared/components/atoms/button/button.component";
 
 @Component({
   selector: 'post-create-page',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, ButtonComponent],
   templateUrl: './post-create.component.html',
   styleUrl: './post-create.component.scss'
 })

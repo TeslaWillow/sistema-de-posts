@@ -6,16 +6,16 @@
   } @else if (post()) {
     <article class="bg-bg-card p-8 rounded-2xl shadow-sm border border-border-main mb-8">
       <header class="mb-6">
-        <h1 class="text-4xl font-extrabold text-gray-900 mb-2">
+        <h1 class="text-4xl font-extrabold text-text-base mb-2">
           <a [routerLink]="['/posts']">&larr;</a>
           {{ post()?.title }}
         </h1>
-        <div class="text-gray-500 text-sm">
-          Por <span class="font-semibold text-blue-600">{{ post()?.author }}</span>
+        <div class="text-text-muted text-sm">
+          Por <span class="font-semibold text-primary">{{ post()?.author }}</span>
           • {{ post()?.createdAt | date:'longDate' }}
         </div>
       </header>
-      <div class="prose prose-blue max-w-none text-gray-700 leading-relaxed">
+      <div class="prose prose-blue max-w-none text-text-base leading-relaxed">
         {{ post()?.body }}
       </div>
     </article>
@@ -25,9 +25,9 @@
         <h3 class="text-2xl font-bold text-primary">Comentarios ({{ comments().length }})</h3>
       </div>
 
-      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="bg-gray-50 p-6 rounded-xl border border-gray-200">
+      <form [formGroup]="commentForm" (ngSubmit)="onCommentSubmit()" class="bg-bg-card p-6 rounded-xl border border-border-main">
         <div class="mb-2">
-          <h4 class="font-semibold mb-4 text-gray-700">Deja un comentario</h4>
+          <h4 class="font-semibold mb-4 text-text-base">Deja un comentario</h4>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
           <input formControlName="name" placeholder="Tu nombre" class="p-2 border rounded-md" />
@@ -39,7 +39,12 @@
             <small class="text-red-500 text-sm mt-1">El email es obligatorio y debe ser válido.</small>
           }
         </div>
-        <textarea formControlName="body" rows="3" placeholder="Escribe aquí tu comentario..." class="w-full p-2 border rounded-md mb-4"></textarea>
+        <textarea
+          formControlName="body"
+          rows="3"
+          placeholder="Escribe aquí tu comentario..."
+          class="w-full p-2 border rounded-md mb-4"
+        ></textarea>
         @if (isInvalidField('body')) {
           <small class="text-red-500 text-sm mt-1">El comentario no puede estar vacío.</small>
         }
@@ -53,12 +58,12 @@
           <div class="bg-bg-card p-4 rounded-lg border border-border-main shadow-sm">
             <div class="flex justify-between items-center mb-2">
               <span class="font-bold text-primary">{{ comment.name }}</span>
-              <span class="text-xs text-gray-400">{{ comment.createdAt | date:'short' }}</span>
+              <span class="text-xs text-text-muted">{{ comment.createdAt | date:'short' }}</span>
             </div>
             <p class="text-gray-600 text-sm">{{ comment.body }}</p>
           </div>
         } @empty {
-          <p class="text-center text-gray-400 py-4">No hay comentarios todavía. ¡Sé el primero!</p>
+          <p class="text-center text-text-muted py-4">No hay comentarios todavía. ¡Sé el primero!</p>
         }
       </div>
     </section>
